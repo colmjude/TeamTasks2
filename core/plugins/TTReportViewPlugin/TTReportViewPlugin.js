@@ -2,9 +2,10 @@
 |''Name:''|TTReportViewPlugin|
 |''Description:''|Add a messaging console with acticity monitor to a Tiddlywiki|
 |''Author:''|PhilHawksworth|
+|''Tweaker:''|ColmBritton|
 |''CodeRepository:''|http://svn.tiddlywiki.org/Trunk/contributors/PhilHawksworth/Verticals/TeamTasks/teamtasks/plugins/TTReportView.js |
-|''Version:''|0.0.1|
-|''Date:''|Jan 23, 2008|
+|''Version:''|0.0.11|
+|''Date:''|Dec 15, 2010|
 |''Comments:''|Please make comments at http://groups.google.co.uk/group/TiddlyWikiDev |
 |''License:''|[[Creative Commons Attribution-ShareAlike 2.5 License|http://creativecommons.org/licenses/by-sa/2.5/]] |
 |''~CoreVersion:''|2.3|
@@ -103,7 +104,7 @@ version.extensions.TTReportViewPlugin = {installed:true};
 			var consider = true;
 			for(var f=0; f<filters.length; f++) {
 				if(filters[f].match == true) {
-					if(store.getValue(taskTiddlers[t], filters[f].field).toLowerCase() != filters[f].value.toLowerCase()){
+					if(!store.getValue(taskTiddlers[t], filters[f].field) || store.getValue(taskTiddlers[t], filters[f].field).toLowerCase() != filters[f].value.toLowerCase()){
 						consider = false;
 						break;
 					}
