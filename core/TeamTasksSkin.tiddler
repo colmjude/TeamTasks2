@@ -1,15 +1,18 @@
-<div title="TeamTasksSkin" modifier="PhilHawksworth" created="200801300000" tags="systemTheme excludeSearch TeamTasks">
+<div title="TeamTasksSkin" modifier="ColmBritton" modified="201102081000" tags="systemTheme excludeSearch TeamTasks">
 <pre>
 /***
 |''Name:''|TeamTasksSkin |
 |''Description:''|The basic TeamTasks theme |
-|''Author:''|Phil Hawksworth - ph [at] osmosoft [dot] com |
+|''Author:''|Colm Britton - colm [at] osmosoft [dot] com |
+|''Originator:''|Phil Hawksworth - ph [at] osmosoft [dot] com |
 |''~CodeRepository:''|http://svn.tiddlywiki.org/Trunk/contributors/PhilHawksworth/verticals/TeamTasks/teamtasks/TeamTasksSkin.tiddler |
-|''Version:''|0.4.1|
+|''Version:''|0.4|
+|''Date:''|September 20th, 2010|
 |''Comments:''|Please make comments at http://groups.google.co.uk/group/TiddlyWikiDev |
 |''License:''|[[BSD License|http://www.opensource.org/licenses/bsd-license.php]] |
 |''~CoreVersion:''|2.4.0|
 |''~PageTemplate:''|##PageTemplate|
+|''~ViewTemplate:''|##ViewTemplate|
 |''~EditTemplate:''|##EditTemplate|
 |''~taskViewTemplate:''|##taskViewTemplate|
 |''~taskEditTemplate:''|##taskEditTemplate|
@@ -33,6 +36,16 @@
 </div>
 <!--}}}-->
 
+!ViewTemplate
+<!--{{{-->
+<div class='toolbar' macro='toolbar [[ToolbarCommands::ViewToolbar]]'></div>
+<div class='title' macro='view title'></div>
+<div class='subtitle'><span macro='view modifier link'></span>, <span macro='view modified date'></span> (<span macro='message views.wikified.createdPrompt'></span> <span macro='view created date'></span>)</div>
+<div class='tagging' macro='tagging'></div>
+<div class='tagged' macro='tags'></div>
+<div class='viewer' macro='view text wikified'></div>
+<div class='tagClear'></div>
+<!--}}}-->
 
 !EditTemplate
 <!--{{{-->
@@ -58,10 +71,11 @@
 	<table>
 	<tr>
 		<td class='taskbody'><div class='viewer' macro='view text wikified'></div></td>
-		<td class='taskControls'><div class='taskControls' macro='tiddler TaskTiddlerControls'></div></td>
+		<td class='taskControls'><div class='taskControls' macro='tiddler TaskTiddlerControls'></td>
 	</tr>
 	</table>
 </div>
+<div class='comments-wrapper' macro='optionalComments'></div>
 <div class='tagClear'></div>
 <!--}}}-->
 
@@ -72,12 +86,12 @@
 <div class='title edit' macro='edit title'></div>
 <div class='subtitle'><span macro='view modifier link'></span>, <span macro='view modified date'></span> (<span macro='message views.wikified.createdPrompt'></span> <span macro='view created date'></span>)</div>
 <div class='tagging' macro='tagging'></div>
-<div class='tagged edit' macro='tags'></div>
+<div class='tagged edit' macro='edit tags'></div>
 <div class='task'>
 	<table>
 	<tr>
-		<td class='taskbody'><div class='viewer edit' macro='edit text'></div></td>
-		<td class='taskControls'><div class='taskControls' macro='tiddler TaskTiddlerControls'></div></td>
+		<td class='taskbody'><div class='viewer edit' macro='edit text wikified'></div></div></td>
+		<td class='taskControls'><div class='taskControls' macro='tiddler TaskTiddlerControls'></td>
 	</tr>
 	</table>
 </div>
@@ -201,15 +215,13 @@ div.header #topMenu { position:absolute; right:20px; bottom:0;}
 .tiddler div.task div.taskControls table tr td { border-style:none;}
 .tiddler div.task div.taskControls select, 
 .tiddler div.task div.taskControls input, 
-.tiddler div.task div.taskControls textarea { width: 258px;  font-family:helvetica, Arial;}
+.tiddler div.task div.taskControls textarea { width: 258px;}
 .tiddler div.task div.taskControls textarea { width: 250px; padding:4px; border:1px solid #ccc; border-top-color:#777; font-size:1em;}
 .tiddler div.task div.taskControls input {width:254px;}
 .tiddler div.task div.taskControls .fieldContainer {display: block; margin-bottom: 0.4em; }
 .tiddler div.task div.taskControls .fieldNote {display: block;  margin-top: 0.4em; }
 .tiddler div.task div.dependencies { padding:1em; background-color:[[TeamTasksColors::LightestShade]]; border:solid 1px [[TeamTasksColors::LightShade]]; border-top-color:[[TeamTasksColors::DarkShade]];}
 .tiddler div.task .label {font-size:0.9em; color:[[TeamTasksColors::DarkestShade]]; margin-bottom:0.4em;}
-
-
 
 /* tiddler Edit mode  */
 
@@ -219,7 +231,17 @@ div.header #topMenu { position:absolute; right:20px; bottom:0;}
 .tiddler div.editor div.viewer {  padding: none; background-color:[[TeamTasksColors::TiddlerBackground]];}
 .tiddler div.editor textarea {font-size:0.9em; width:100%; }
 
+/* tiddlyspace public/private */
+.tiddler .set-privacy { position: absolute; padding:10px 0 0 18px; }
+.tiddler .privacySettings {}
+.tiddler .privacySettings input {display: inline; width:15px;}
+.tiddler .spaceSiteIcon {float:left; height:24px; margin-right:6px;width:24px;}
+.tiddler .subtitle {margin: 5px 20px 0;}
+#popup {background:#fff; padding: 4px;}
+#popup .button {margin:1px;}
 
+/* Comments */
+.comments-wrapper { margin-left:20px; width:95%; }
 
 /* New User Wizard */ 
 #createTeamTaskUserForm { background-color:#f0f0f0; padding:1em; border:solid 1px #ccc;}
@@ -231,55 +253,6 @@ table.sortable { margin:0.5em 0; border-style:none; }
 table.sortable tr {border-left-width:0; border-right-width:0;}
 table.sortable * td {border-top:solid 1px [[TeamTasksColors::LightShade]]; border-bottom:solid 1px [[TeamTasksColors::LightShade]]; border-left-width:0; border-right-width:0;}
 table.sortable thead tr td { background-color: [[TeamTasksColors::LightestShade]]; color:[[TeamTasksColors::Darkest]];}
-
-/* Autocomplete */
-
-.ac_results {
-	padding: 0px;
-	border: 1px solid WindowFrame;
-	background-color: Window;
-	overflow: hidden;
-}
-
-.ac_results ul {
-	width: 100%;
-	list-style-position: outside;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-.ac_results iframe {
-	display:none;/*sorry for IE5*/
-	display/**/:block;/*sorry for IE5*/
-	position:absolute;
-	top:0;
-	left:0;
-	z-index:-1;
-	filter:mask();
-	width:3000px;
-	height:3000px;
-}
-
-.ac_results li {
-	margin: 0px;
-	padding: 2px 5px;
-	cursor: pointer;
-	display: block;
-	width: 100%;
-	font: menu;
-	font-size: 12px;
-	overflow: hidden;
-}
-
-.ac_loading {
-	background : Window url('./indicator.gif') right center no-repeat;
-}
-
-.ac_over {
-	background-color: Highlight;
-	color: HighlightText;
-}
 
 /*}}}*/</pre>
 </div>

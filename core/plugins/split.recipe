@@ -4,3 +4,5 @@ tiddler: TTReportViewPlugin/TTReportViewPlugin.js
 tiddler: TTMigrateTasks0304Plugin.js
 tiddler: JQueryAutocompletePlugin.js
 tiddler: AddNewUserPlugin/AddNewUserPlugin.js
+tiddler: CommentsPlugin/CommentsPlugin.js
+tiddler: OptionalComments/OptionalCommentsPlugin.js
