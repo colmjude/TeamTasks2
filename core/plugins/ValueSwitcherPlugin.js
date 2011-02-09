@@ -153,6 +153,7 @@ if(!version.extensions.ValueSwitcher)
 				var extField = option[0];
 				var extFieldVal = option[1];
 				store.setValue(tiddler,extField,extFieldVal);
+				story.saveTiddler(title);
 			}
 		},
 
@@ -167,6 +168,7 @@ if(!version.extensions.ValueSwitcher)
 				var title = t.getAttribute('tiddler');
 				var tiddler =  store.getTiddler(title);
 				store.setValue(tiddler,ttField,value);
+				story.saveTiddler(title);
 				refreshAll();
 
 			}
