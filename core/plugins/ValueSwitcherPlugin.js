@@ -5,8 +5,9 @@
 |''Date:''|13 Mar, 2010|
 |''Source:''|http://www.hawksworx.com/playground/TeamTasks/#ValueTogglerPlugin|
 |''Author:''|PhilHawksworth (phawksworth (at) gmail (dot) com)|
+|''Tweaker:''|Colm Britton (colmjude (at) gmail (dot) com)|
 |''License:''|[[BSD open source license]]|
-|''CoreVersion:''|2.5|
+|''CoreVersion:''|2.5.2|
 ***/
 
 //{{{
@@ -121,7 +122,8 @@ if(!version.extensions.ValueSwitcher)
 
 		//Get definition values for populating UI from definition tiddlers.
 		getDefValues: function(src) {
-			var text = store.getTiddlerText(src).split('\n');
+			var macroReg = /\n<<[\w\s\"\:]*>>/;
+			var text = store.getTiddlerText(src).replace(macroReg, '').split('\n');
 			var output = [];
 			for(var t=0; t<text.length; t++) {
 				//support calling the old TaskViewBuilder macro to list the tasks here too.
