@@ -1,10 +1,12 @@
-<div title="TeamTasksSkin" modifier="ColmBritton" modified="201102081000" tags="systemTheme excludeSearch TeamTasks">
-<pre>
+title: TeamTasksSkin
+modifier: colmbritton
+tags: systemTheme excludeSearch TeamTasks
+
 /***
 |''Name:''|TeamTasksSkin |
 |''Description:''|The basic TeamTasks theme |
-|''Author:''|Colm Britton - colm [at] osmosoft [dot] com |
-|''Originator:''|Phil Hawksworth - ph [at] osmosoft [dot] com |
+|''Tweaker:''|Colm Britton - colm [at] osmosoft [dot] com |
+|''Author:''|Phil Hawksworth - ph [at] osmosoft [dot] com |
 |''~CodeRepository:''|http://svn.tiddlywiki.org/Trunk/contributors/PhilHawksworth/verticals/TeamTasks/teamtasks/TeamTasksSkin.tiddler |
 |''Version:''|0.4|
 |''Date:''|September 20th, 2010|
@@ -39,7 +41,7 @@
 !ViewTemplate
 <!--{{{-->
 <div class='toolbar' macro='toolbar [[ToolbarCommands::ViewToolbar]]'></div>
-<div class='title' macro='view title'></div>
+<div class='title' macro='view title'><div class='spaceSiteIcon' macro='tiddlerOrigin label:no height:24 width:24'></div></div>
 <div class='subtitle'><span macro='view modifier link'></span>, <span macro='view modified date'></span> (<span macro='message views.wikified.createdPrompt'></span> <span macro='view created date'></span>)</div>
 <div class='tagging' macro='tagging'></div>
 <div class='tagged' macro='tags'></div>
@@ -50,6 +52,7 @@
 !EditTemplate
 <!--{{{-->
 <div class="editor">
+<div class="set-privacy" macro='setPrivacy'></div>
 <div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbar]]'></div>
 <div class='title edit' macro='edit title'></div>
 <div class='subtitle'><span macro='view modifier link'></span>, <span macro='view modified date'></span> (<span macro='message views.wikified.createdPrompt'></span> <span macro='view created date'></span>)</div>
@@ -63,7 +66,7 @@
 !taskViewTemplate
 <!--{{{-->
 <div class='toolbar' macro='toolbar [[ToolbarCommands::TaskViewToolbar]]'></div>
-<div class='title' macro='view title'></div>
+<div class='title' macro='view title'><div class='spaceSiteIcon' macro='tiddlerOrigin label:no height:24 width:24'></div></div>
 <div class='subtitle'><span macro='view modifier link'></span>, <span macro='view modified date'></span> (<span macro='message views.wikified.createdPrompt'></span> <span macro='view created date'></span>)</div>
 <div class='tagging' macro='tagging'></div>
 <div class='tagged' macro='tags'></div>
@@ -82,6 +85,7 @@
 !taskEditTemplate
 <!--{{{-->
 <div class="editor">
+<div class="set-privacy" macro='setPrivacy'></div>
 <div class='toolbar' macro='toolbar [[ToolbarCommands::TaskEditToolbar]]'></div>
 <div class='title edit' macro='edit title'></div>
 <div class='subtitle'><span macro='view modifier link'></span>, <span macro='view modified date'></span> (<span macro='message views.wikified.createdPrompt'></span> <span macro='view created date'></span>)</div>
@@ -213,13 +217,7 @@ div.header #topMenu { position:absolute; right:20px; bottom:0;}
 .tiddler div.task div.taskControls table { border-style:none; margin: 10px 0;}
 .tiddler div.task div.taskControls table tr { border-style:none;}
 .tiddler div.task div.taskControls table tr td { border-style:none;}
-.tiddler div.task div.taskControls select, 
-.tiddler div.task div.taskControls input, 
-.tiddler div.task div.taskControls textarea { width: 258px;}
-.tiddler div.task div.taskControls textarea { width: 250px; padding:4px; border:1px solid #ccc; border-top-color:#777; font-size:1em;}
-.tiddler div.task div.taskControls input {width:254px;}
-.tiddler div.task div.taskControls .fieldContainer {display: block; margin-bottom: 0.4em; }
-.tiddler div.task div.taskControls .fieldNote {display: block;  margin-top: 0.4em; }
+.tiddler div.task div.taskControls select {width: 150px; font-size:0.9em;}
 .tiddler div.task div.dependencies { padding:1em; background-color:[[TeamTasksColors::LightestShade]]; border:solid 1px [[TeamTasksColors::LightShade]]; border-top-color:[[TeamTasksColors::DarkShade]];}
 .tiddler div.task .label {font-size:0.9em; color:[[TeamTasksColors::DarkestShade]]; margin-bottom:0.4em;}
 
@@ -254,5 +252,4 @@ table.sortable tr {border-left-width:0; border-right-width:0;}
 table.sortable * td {border-top:solid 1px [[TeamTasksColors::LightShade]]; border-bottom:solid 1px [[TeamTasksColors::LightShade]]; border-left-width:0; border-right-width:0;}
 table.sortable thead tr td { background-color: [[TeamTasksColors::LightestShade]]; color:[[TeamTasksColors::Darkest]];}
 
-/*}}}*/</pre>
-</div>
+/*}}}*/
