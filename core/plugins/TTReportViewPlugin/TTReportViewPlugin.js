@@ -156,10 +156,14 @@ version.extensions.TTReportViewPlugin = {installed:true};
 					var fieldName = fieldPrefix + df;	
 				var td  = createTiddlyElement(tr,'td',null,null,null);
 				var v = store.getValue(toDisplay[d], fieldName);
-				if(fieldName == 'title')
+				if(fieldName == 'title') {
 					createTiddlyLink(td,v,true,null,false,false);
-				else
+				} else if(fieldName == 'modified' || fieldName == 'created') {
+					v = Date.convertFromYYYYMMDDHHMM(v);
+					createTiddlyText(td,v.formatString("0DD-0MM-YYYY"));
+				} else {
 					createTiddlyText(td,v);
+				}
 			}
 		}		
 	};
