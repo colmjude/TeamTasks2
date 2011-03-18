@@ -256,5 +256,10 @@ table.sortable tr {border-left-width:0; border-right-width:0;}
 table.sortable * td {border-top:solid 1px [[TeamTasksColors::LightShade]]; border-bottom:solid 1px [[TeamTasksColors::LightShade]]; border-left-width:0; border-right-width:0;}
 table.sortable thead tr td { background-color: [[TeamTasksColors::LightestShade]]; color:[[TeamTasksColors::Darkest]];}
 
+/* TT Report Builder */
+.ttbuilder ul { width: 50%; }
+.ttbuilder li { list-style: none; }
+.ttbuilder li.selected { background:[[TeamTasksColors::Darkest]]; color:[[TeamTasksColors::Accent]];  }
+
 /*}}}*/
 

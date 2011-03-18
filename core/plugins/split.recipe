@@ -8,3 +8,4 @@ tiddler: CommentsPlugin/CommentsPlugin.js
 tiddler: OptionalComments/OptionalCommentsPlugin.js
 tiddler: WikifiedMessagesPlugin/WikifiedMessagesPlugin.js
 tiddler: FadingMessagesPlugin/FadingMessagesPlugin.js
+tiddler: ReportBuilder/ReportBuilder.js

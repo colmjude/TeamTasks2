@@ -5,7 +5,7 @@ recipe: $TW_TRUNKDIR/../Tags/core/REL-2.6.2_Final/tiddlywiki.html.recipe
 tiddler: settings.js
 
 # Theme
-tiddler: TeamTasksSkin.tiddler
+tiddler: TeamTasksSkin.tid
 tiddler: TeamTasksSkinAlt.tiddler
 tiddler: TeamTasksColors.tiddler
 
@@ -28,6 +28,7 @@ tiddler: TeamTasksMetaData.tiddler
 tiddler: TaskDefinitions.tiddler
 tiddler: TaskViews.tiddler
 tiddler: ToolbarCommands.tiddler
+tiddler: ReportBuilder.tid
 
 # Content and documentation
 recipe: content/split.recipe
