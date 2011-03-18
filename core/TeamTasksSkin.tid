@@ -1,13 +1,15 @@
-<div title="TeamTasksSkin" modifier="ColmBritton" modified="201102081000" tags="systemTheme excludeSearch TeamTasks">
-<pre>
+title:TeamTasksSkin
+modifier:colmbritton
+tags:systemTheme excludeSearch TeamTasks
+
 /***
 |''Name:''|TeamTasksSkin |
 |''Description:''|The basic TeamTasks theme |
-|''Author:''|Colm Britton - colm [at] osmosoft [dot] com |
+|''Tweaker:''|Colm Britton - colm [at] osmosoft [dot] com |
 |''Originator:''|Phil Hawksworth - ph [at] osmosoft [dot] com |
 |''~CodeRepository:''|http://svn.tiddlywiki.org/Trunk/contributors/PhilHawksworth/verticals/TeamTasks/teamtasks/TeamTasksSkin.tiddler |
 |''Version:''|0.4|
-|''Date:''|September 20th, 2010|
+|''Date:''|9th Feb 2011|
 |''Comments:''|Please make comments at http://groups.google.co.uk/group/TiddlyWikiDev |
 |''License:''|[[BSD License|http://www.opensource.org/licenses/bsd-license.php]] |
 |''~CoreVersion:''|2.4.0|
@@ -254,5 +256,5 @@ table.sortable tr {border-left-width:0; border-right-width:0;}
 table.sortable * td {border-top:solid 1px [[TeamTasksColors::LightShade]]; border-bottom:solid 1px [[TeamTasksColors::LightShade]]; border-left-width:0; border-right-width:0;}
 table.sortable thead tr td { background-color: [[TeamTasksColors::LightestShade]]; color:[[TeamTasksColors::Darkest]];}
 
-/*}}}*/</pre>
-</div>
+/*}}}*/
+
