@@ -5,9 +5,9 @@ recipe: $TW_TRUNKDIR/../Tags/core/REL-2.6.2_Final/tiddlywiki.html.recipe
 tiddler: settings.js
 
 # Theme
-tiddler: TeamTasksSkin.tiddler
+tiddler: TeamTasksSkin.tid
 tiddler: TeamTasksSkinAlt.tiddler
-tiddler: TeamTasksColors.tiddler
+tiddler: TeamTasksColors.tid
 
 # Plugins
 recipe: plugins/split.recipe
@@ -20,14 +20,15 @@ tiddler: $TW_TRUNKDIR/contributors/MartinBudden/plugins/ThemeBackstagePlugin.js
 tiddler: SiteTitle.tiddler
 tiddler: SiteSubtitle.tiddler
 tiddler: DefaultTiddlers.tiddler
-tiddler: TopMenu.tiddler
+tiddler: TopMenu.tid
 tiddler: MainMenu.tiddler
 tiddler: Listings.tiddler 
 tiddler: TaskTiddlerControls.tiddler
 tiddler: TeamTasksMetaData.tiddler
 tiddler: TaskDefinitions.tiddler
-tiddler: TaskViews.tiddler
-tiddler: ToolbarCommands.tiddler
+tiddler: TaskViews.tid
+tiddler: ToolbarCommands.tid
+tiddler: ReportBuilder.tid
 
 # Content and documentation
 recipe: content/split.recipe
