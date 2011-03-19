@@ -17,14 +17,14 @@ tiddler: $TW_TRUNKDIR/contributors/MartinBudden/plugins/ThemeBackstagePlugin.js
 
 
 # TeamTasks UI Elements
-tiddler: SiteTitle.tiddler
+tiddler: SiteTitle.tid
 tiddler: SiteSubtitle.tiddler
-tiddler: DefaultTiddlers.tiddler
+tiddler: DefaultTiddlers.tid
 tiddler: TopMenu.tid
 tiddler: MainMenu.tiddler
 tiddler: Listings.tiddler 
 tiddler: TaskTiddlerControls.tiddler
-tiddler: TeamTasksMetaData.tiddler
+tiddler: TeamTasksMetaData.tid
 tiddler: TaskDefinitions.tiddler
 tiddler: TaskViews.tid
 tiddler: ToolbarCommands.tid
