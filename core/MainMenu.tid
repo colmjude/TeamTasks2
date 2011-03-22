@@ -1,5 +1,8 @@
-<div title="MainMenu" modifier="PhilHawksworth" created="200708051914" modified="200710241347>
-<pre>
+title:MainMenu
+modifier:PhilHawksworth
+created:200708051914
+modified:200710241347
+
 {{search{<<search>>}}}
 [[Listings]]
 [[Getting Started with TeamTasks]]
@@ -12,5 +15,3 @@
 {{meta{
 	<<tiddler TeamTasksMetaData>>
 }}}
-</pre>
-</div>

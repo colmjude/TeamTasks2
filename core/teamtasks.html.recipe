@@ -6,7 +6,7 @@ tiddler: settings.js
 
 # Theme
 tiddler: TeamTasksSkin.tid
-tiddler: TeamTasksSkinAlt.tiddler
+tiddler: TeamTasksSkinAlt.tid
 tiddler: TeamTasksColors.tid
 
 # Plugins
@@ -18,14 +18,14 @@ tiddler: $TW_TRUNKDIR/contributors/MartinBudden/plugins/ThemeBackstagePlugin.js
 
 # TeamTasks UI Elements
 tiddler: SiteTitle.tid
-tiddler: SiteSubtitle.tiddler
+tiddler: SiteSubtitle.tid
 tiddler: DefaultTiddlers.tid
 tiddler: TopMenu.tid
-tiddler: MainMenu.tiddler
-tiddler: Listings.tiddler 
-tiddler: TaskTiddlerControls.tiddler
+tiddler: MainMenu.tid
+tiddler: Listings.tid 
+tiddler: TaskTiddlerControls.tid
 tiddler: TeamTasksMetaData.tid
-tiddler: TaskDefinitions.tiddler
+tiddler: TaskDefinitions.tid
 tiddler: TaskViews.tid
 tiddler: ToolbarCommands.tid
 tiddler: ReportBuilder.tid

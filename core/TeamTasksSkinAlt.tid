@@ -1,5 +1,8 @@
-<div title="TeamTasksSkinAlt" modifier="PhilHawksworth" created="200903201420" tags="systemTheme excludeSearch TeamTasks">
-<pre>
+title:TeamTasksSkinAlt
+modifier:PhilHawksworth
+created:200903201420
+tags:systemTheme excludeSearch TeamTasks
+
 /***
 |''Name:''|TeamTasksSkinAlt |
 |''Description:''|The basic TeamTasks theme with an alternative layout for the task tiddlers. |
@@ -273,5 +276,4 @@ table.sortable thead tr td { background-color: [[TeamTasksColors::LightestShade]
 	color: HighlightText;
 }
 
-/*}}}*/</pre>
-</div>
+/*}}}*/

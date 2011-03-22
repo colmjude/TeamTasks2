@@ -1,5 +1,8 @@
-<div title="TaskTiddlerControls" modifier="PhilHawksworth" created="200709111402" modified="200709131152">
-<pre>
+title:TaskTiddlerControls
+modifier:PhilHawksworth
+created:200709111402
+modified:200709131152
+
 |scope |<<ValueSwitcher type:"dropdown" valuesSource:"ScopeDefinitions">> |
 |priority |<<ValueSwitcher type:"dropdown" valuesSource:"PriorityDefinitions">> |
 |assigned by |<<ValueSwitcher type:"dropdown" field:"assignedby" valuesSource:"UserDefinitions" note:"textarea">> |
@@ -7,5 +10,3 @@
 |alias |<<ValueSwitcher type:"text" field:"alias">> |
 |dept |<<ValueSwitcher type:"text" field:"dept" autoComplete:"true">> |
 |notes |<<ValueSwitcher type:"textarea" field:"notes">> |
-</pre>
-</div>
