@@ -12,7 +12,6 @@ tiddler: TeamTasksColors.tiddler
 # Plugins
 recipe: plugins/split.recipe
 tiddler: $TW_TRUNKDIR/contributors/EricShulman/plugins/TaggedTemplateTweak.js
-tiddler: $TW_TRUNKDIR/contributors/SaqImtiaz/plugins/TableSortingPlugin/TableSortingPlugin.js
 tiddler: $TW_TRUNKDIR/contributors/MartinBudden/plugins/ThemeBackstagePlugin.js
 
 
