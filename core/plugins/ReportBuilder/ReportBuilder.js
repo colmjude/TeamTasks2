@@ -13,6 +13,11 @@ Create the UI to build a teamtask report
 <<ReportBuilder>>
 }}}
 
+!! To Do
+* still needs the orderby part but this first needs the orderby to work properly
+* better UI
+* ability to order column order
+
 ***/
 
 //{{{
@@ -51,13 +56,11 @@ version.extensions.ReportBuilderPlugin = {installed:true};
 		createOpts: function(fields) {
 			var list = $("<ul>", {'class':'builderlist'});
 			for(var i = 0; i < fields.length; i++) {
-				list.append(
-					$("<li>")
-						.text(fields[i])
-						.bind("click",function(){
-							$(this).toggleClass('selected');
-						})
-				);
+				var item = $("<li>").bind("click",macro.itemClick);
+				item.append($("<span>",{'class':'field'}).text(fields[i]))
+					.append($("<span>",{'class':'filter inactive'}).text("where it equals").append($("<input>", {"type":'text'})));
+				//	.append($("<span>",{'class':'orderby inactive'}).text("order dsc"));
+				list.append(item);
 			}
 			return list;
 		},
@@ -76,12 +79,39 @@ version.extensions.ReportBuilderPlugin = {installed:true};
 				$('input.reporttitle').addClass("error");
 			} else {
 				// get selected fields
-				var sfields = [];
+				var rObj = {
+					fields: [],
+					filters: []
+				};
 				ttbuilder.find("li.selected").each(function(){
-					sfields.push($(this).text());
+					var field = $(this).find(".field").text();
+					rObj.fields.push(field);
+					
+					var filter = $(this).find(".filter");
+					if(filter.hasClass("active")){
+						// TODO: handle upper and lowercase
+						var value = filter.find("input").val();
+						// check if blank
+						if(value == ""){
+							filter.find("input").addClass("error").val("no value");
+							return false;
+						} else if(filter.hasClass("not")) {
+							value = "!" + value;
+						}
+						reportFilter = [field, value];
+						rObj.filters.push(reportFilter);	
+					}
+					
+					// to do the order by once the order by works properly
+					var orderby = $(this).find(".orderby");
+					if(orderby.hasClass("active")){
+						// to complete soon
+					}
+					
+					//console.log(rObj);
 				});
 				// generate report macro
-				var macrotext = macro.generateMacro(sfields);
+				var macrotext = macro.generateMacro(rObj);
 				// create tiddler with macro as the text
 				var reportTid = macro.createReportTiddler(title, macrotext);
 				// add to the list of reports (if desired?)
@@ -98,10 +128,13 @@ version.extensions.ReportBuilderPlugin = {installed:true};
 			}
 			
 		},
-		generateMacro: function(fields) {
+		generateMacro: function(rObj) {
 			var text = "<<TTReportView";
-			var toDisplay = fields.join(',');
+			var toDisplay = rObj.fields.join(',');
 			text = text + ' DisplayFields:"' + toDisplay + '"';
+			for(var i = 0; i < rObj.filters.length; i++){
+				text = text + ' ' + rObj.filters[i][0] + ':"' + rObj.filters[i][1] + '"';
+			}
 			text = text + ">>";
 			return text;
 		},
@@ -113,6 +146,43 @@ version.extensions.ReportBuilderPlugin = {installed:true};
 			tid = store.saveTiddler(tid);
 			story.displayTiddler(null, tid.title);
 			return tid;
+		},
+		itemClick: function(e) {
+			
+			var tag = e.target.tagName;
+			var jEl = $(e.target); 
+			if(tag == "LI" || (tag == "SPAN" && jEl.hasClass("field"))) {
+				$(this).toggleClass('selected');
+				// reset spans in the element
+				console.log(e.target.tagName);
+			} else if(tag == "INPUT") {
+				var parentspan = jEl.parent("span.filter");
+				if(!parentspan.hasClass("active")){
+					parentspan.removeClass("inactive").addClass("active");
+				}
+			} else if($(this).hasClass("selected")) {
+				if(jEl.hasClass("filter")) {
+					var children = jEl.children();
+					if(jEl.hasClass("inactive")) {
+						jEl.removeClass("inactive").addClass("active");
+					} else if(jEl.hasClass("active") && !jEl.hasClass("not")) {
+						jEl.addClass("not").text("where it does not equal").append(children);
+					} else {
+						jEl.removeClass("not").removeClass("active").addClass("inactive").text("where it equals").append(children);
+					}
+				} else if(jEl.hasClass("orderby")) {
+					if(jEl.hasClass("inactive")) {
+						jEl.removeClass("inactive").addClass("active").addClass("dsc");
+					} else if(jEl.hasClass("active") && jEl.hasClass("dsc")) {
+						jEl.removeClass("dsc").addClass("asc").text("order asc");
+					} else {
+						jEl.removeClass("active").removeClass("asc").addClass("inactive").text("order dsc");
+					}
+				}
+			} else {
+				$(this).toggleClass('selected');
+			}
+			e.stopPropagation();
 		}
 	};
 

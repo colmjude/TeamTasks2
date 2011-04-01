@@ -257,9 +257,19 @@ table.sortable * td {border-top:solid 1px [[TeamTasksColors::LightShade]]; borde
 table.sortable thead tr td { background-color: [[TeamTasksColors::LightestShade]]; color:[[TeamTasksColors::Darkest]];}
 
 /* TT Report Builder */
-.ttbuilder ul { width: 50%; }
-.ttbuilder li { list-style: none; }
-.ttbuilder li.selected { background:[[TeamTasksColors::Darkest]]; color:[[TeamTasksColors::Accent]];  }
+.ttbuilder ul { max-width: 550px; padding: 0; margin: 0;}
+.ttbuilder li { list-style: none; padding: 0.2em 1em; line-height: 1.5em; border-bottom: 1px dashed [[TeamTasksColors::Shade]]; }
+.ttbuilder li:hover { cursor: pointer; }
+.ttbuilder li span.filter, .ttbuilder li span.orderby { visibility: hidden; color: #585848; }
+.ttbuilder li span.filter.active, .ttbuilder li span.orderby.active { visibility: hidden; color: [[TeamTasksColors::Accent]]; }
+.ttbuilder li span.filter.active.not { color: red; }
+.ttbuilder li .filter input { background: #ccc; }
+.ttbuilder li .filter.active input { background: #fff; }
+.ttbuilder li span { margin-right: 20px; }
+.ttbuilder li span.field { width: 100px; float: left; font-weight: 600; text-transform: uppercase; }
+.ttbuilder li span input { margin: 0 10px; padding: 0 0.5em; }
+.ttbuilder li.selected { background:[[TeamTasksColors::Darkest]]; color:[[TeamTasksColors::Accent]]; }
+.ttbuilder li.selected span.filter, .ttbuilder li.selected span.orderby { visibility: visible; }
 
 /*}}}*/
 
