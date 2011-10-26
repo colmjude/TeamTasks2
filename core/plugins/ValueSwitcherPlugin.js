@@ -2,7 +2,7 @@
 |''Name:''|ValueSwitcherPlugin|
 |''Description:''|Gather values from a definition tiddler, and present the user with a UI for setting a value from those available options as an extended field |
 |''Version:''|0.2.2|
-|''Date:''|13 Mar, 2010|
+|''Date:''|26 Oct, 2011|
 |''Source:''|http://www.hawksworx.com/playground/TeamTasks/#ValueTogglerPlugin|
 |''Author:''|PhilHawksworth (phawksworth (at) gmail (dot) com)|
 |''Tweaker:''|Colm Britton (colmjude (at) gmail (dot) com)|
@@ -30,25 +30,21 @@ if(!version.extensions.ValueSwitcher)
 			var params = paramString.parseParams("anon",null,true,false,false);
 			var control = getParam(params,"type",null);
 			var id = taskTiddler.id;
-			var title = id.substr(7);
+			var title = $(taskTiddler).attr("tiddler");
 			var tiddler = store.getTiddler(title);
-
-      var field = getParam(params,"field", null);
-
-      var containerEl = createTiddlyElement(place,"div",null,"fieldContainer",null);
+			var field = getParam(params,"field", null);
+			var containerEl = createTiddlyElement(place,"div",null,"fieldContainer",null);
 
 			// build a drop down control
 			if (control == 'dropdown') {
-        config.macros.ValueSwitcher.makeDropdown(containerEl, field, params, title, tiddler);
+				config.macros.ValueSwitcher.makeDropdown(containerEl, field, params, title, tiddler);
 			} else if (control == 'text' || control == 'textarea') {
-        var autoComplete = (getParam(params,"autoComplete"));
-        // var autoComplete = (autoCompleteParam && autoCompleteParam.trim().length);
-        config.macros.ValueSwitcher.makeText
-          (containerEl, field, title, tiddler, control=='textarea', autoComplete);
+				var autoComplete = (getParam(params,"autoComplete"));
+				// var autoComplete = (autoCompleteParam && autoCompleteParam.trim().length);
+				config.macros.ValueSwitcher.makeText(containerEl, field, title, tiddler, control=='textarea', autoComplete);
 			} else {
-        displayMessage("Control type '" + control + "' unknown");
-      }
-
+				displayMessage("Control type '" + control + "' unknown");
+			}
 		},
 
     makeDropdown: function(fieldContainer, field, params, title, tiddler) {
