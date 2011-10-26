@@ -162,7 +162,7 @@ version.extensions.TTReportViewPlugin = {installed:true};
 					v = Date.convertFromYYYYMMDDHHMM(v);
 					createTiddlyText(td,v.formatString("0DD-0MM-YYYY"));
 				} else {
-					createTiddlyText(td,v);
+					(v === undefined) ? createTiddlyText(td," ") : createTiddlyText(td,v);
 				}
 			}
 		}		
