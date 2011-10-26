@@ -19,33 +19,33 @@ if(!version.extensions.ValueSwitcher)
 	version.extensions.ValueSwitcher = {installed:true};
 	config.macros.ValueSwitcher = {
 
-		fieldPrefix: "tt_",
+	fieldPrefix: "tt_",
 
-		handler: function(place,macroName,params,wikifier,paramString,tiddler) {
+	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
 
-			var taskTiddler = story.findContainingTiddler(place);
-			if(!(taskTiddler && taskTiddler != 'undefined')) {
-				return;
-			}
-			var params = paramString.parseParams("anon",null,true,false,false);
-			var control = getParam(params,"type",null);
-			var id = taskTiddler.id;
-			var title = $(taskTiddler).attr("tiddler");
-			var tiddler = store.getTiddler(title);
-			var field = getParam(params,"field", null);
-			var containerEl = createTiddlyElement(place,"div",null,"fieldContainer",null);
+		var taskTiddler = story.findContainingTiddler(place);
+		if(!(taskTiddler && taskTiddler != 'undefined')) {
+			return;
+		}
+		var params = paramString.parseParams("anon",null,true,false,false);
+		var control = getParam(params,"type",null);
+		var id = taskTiddler.id;
+		var title = $(taskTiddler).attr("tiddler");
+		var tiddler = store.getTiddler(title);
+		var field = getParam(params,"field", null);
+		var containerEl = createTiddlyElement(place,"div",null,"fieldContainer",null);
 
-			// build a drop down control
-			if (control == 'dropdown') {
-				config.macros.ValueSwitcher.makeDropdown(containerEl, field, params, title, tiddler);
-			} else if (control == 'text' || control == 'textarea') {
-				var autoComplete = (getParam(params,"autoComplete"));
-				// var autoComplete = (autoCompleteParam && autoCompleteParam.trim().length);
-				config.macros.ValueSwitcher.makeText(containerEl, field, title, tiddler, control=='textarea', autoComplete);
-			} else {
-				displayMessage("Control type '" + control + "' unknown");
-			}
-		},
+		// build a drop down control
+		if (control == 'dropdown') {
+			config.macros.ValueSwitcher.makeDropdown(containerEl, field, params, title, tiddler);
+		} else if (control == 'text' || control == 'textarea') {
+			var autoComplete = (getParam(params,"autoComplete"));
+			// var autoComplete = (autoCompleteParam && autoCompleteParam.trim().length);
+			config.macros.ValueSwitcher.makeText(containerEl, field, title, tiddler, control=='textarea', autoComplete);
+		} else {
+			displayMessage("Control type '" + control + "' unknown");
+		}
+	},
 
     makeDropdown: function(fieldContainer, field, params, title, tiddler) {
       var valueSrc = getParam(params,"valuesSource", null);
