@@ -33,7 +33,7 @@ for example
 //{{{
 if(!version.extensions.TTReportViePlugin) {
 version.extensions.TTReportViewPlugin = {installed:true};
-	
+
 	config.macros.TTReportView = {};
 	config.macros.TTReportView.log = function(str) {
 		if(window.console) {
@@ -43,15 +43,15 @@ version.extensions.TTReportViewPlugin = {installed:true};
 	};
 
 	config.macros.TTReportView.handler = function(place,macroName,params,wikifier,paramString,tiddler) {
-				
+
 		var container = story.findContainingTiddler(place);
 		var wrapper = createTiddlyElement(place,"span");
 		wrapper.setAttribute('refresh','content');
 		wrapper.setAttribute('tiddler',tiddler.title);
 		wrapper.setAttribute('force', 'true');
-		
+
 		var fieldPrefix = "tt_";
-				
+
 		//gather all of the parameters.
 		var params = paramString.parseParams("anon",null,true,false,false);
 		var fieldsString = getParam(params,"DisplayFields",'title');
@@ -64,7 +64,7 @@ version.extensions.TTReportViewPlugin = {installed:true};
 		var order =  orderString.split(",")[1];				
 		var recentItems = getParam(params,"recent");
 		var expectedParams = ['DisplayFields','OrderBy'];
-	
+
 		//interpret and store the filter values.	
 		var filters = [];
 		for(var p in params) {
@@ -84,7 +84,7 @@ version.extensions.TTReportViewPlugin = {installed:true};
 				}
 			}
 		}
-					
+
 		//collect the pertinent tiddlers.
 		var taskTiddlers = store.getTaggedTiddlers("task");
 		var toConsider = [];
@@ -113,7 +113,6 @@ version.extensions.TTReportViewPlugin = {installed:true};
 			if(consider)
 				toConsider.push(taskTiddlers[t]);
 		}
-		
 
 		// now find which of our selected tiddlers we need to exclude
 		for(var d=0; d<toConsider.length; d++) {
@@ -125,7 +124,7 @@ version.extensions.TTReportViewPlugin = {installed:true};
 				}
 			}
 		}
-		
+
 		// remove the excluded tiddlers.
 		for (var i=0; i < toConsider.length; i++) {
 			if(toExclude.contains(toConsider[i]) === false)
