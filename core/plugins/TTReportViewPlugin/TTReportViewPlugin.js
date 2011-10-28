@@ -118,7 +118,7 @@ version.extensions.TTReportViewPlugin = {installed:true};
 		for(var d=0; d<toConsider.length; d++) {
 			for(var f=0; f<filters.length; f++) {
 				if(filters[f].match == false) {
-					if(store.getValue(toConsider[d], filters[f].field).toLowerCase() == filters[f].value.toLowerCase()) {
+					if(store.getValue(toConsider[d], filters[f].field) && store.getValue(toConsider[d], filters[f].field).toLowerCase() == filters[f].value.toLowerCase()) {
 						toExclude.push(toConsider[d]);
 					}	
 				}
