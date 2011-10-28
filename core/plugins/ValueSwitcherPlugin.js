@@ -150,9 +150,9 @@ if(!version.extensions.ValueSwitcher)
 				var extFieldVal = option[1];
 				store.setValue(tiddler,extField,extFieldVal);
 				story.saveTiddler(title);
+				story.refreshAllTiddlers();
 			}
 		},
-
 
 		// Ensure that changes to a free text field are stored as an extended field.
 		changeText: function(ev) {
@@ -165,8 +165,7 @@ if(!version.extensions.ValueSwitcher)
 				var tiddler =  store.getTiddler(title);
 				store.setValue(tiddler,ttField,value);
 				story.saveTiddler(title);
-				refreshAll();
-
+				story.refreshAllTiddlers();
 			}
 			return false;
 		}
