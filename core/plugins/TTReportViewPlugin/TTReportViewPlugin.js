@@ -46,9 +46,9 @@ version.extensions.TTReportViewPlugin = {installed:true};
 				
 		var container = story.findContainingTiddler(place);
 		var wrapper = createTiddlyElement(place,"span");
-		wrapper.setAttribute('refresh','content');
-		wrapper.setAttribute('tiddler',tiddler.title);
-		wrapper.setAttribute('force', 'true');
+		//wrapper.setAttribute('refresh','content');
+		//wrapper.setAttribute('tiddler',tiddler.title);
+		//wrapper.setAttribute('force', 'true');
 		
 		var fieldPrefix = "tt_";
 				
